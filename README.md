@@ -14,7 +14,7 @@
 - **ORM** -> Spring Boot v2.1.5
   - Chosen because it is one of the frameworks used bt heycar and as I don't have a lot of experience with it, seemed like a good opportunity to use it.
 - **database** -> mongodb v3.6.3
-  - Given the scope of the project, a non-relational database was chosen as it would introduce unecessary complexity;
+  - Given the scope of the project, a non-relational database was chosen on a relational database, since the latter would introduce unnecessary complexity;
   - Chosen because it is supported by Spring and I am familiar with it.
   
 ### Problems discovered
