@@ -17,8 +17,12 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document
 public class Listing {
 	
-	@Field("dealer") private String dealer;
-	@Field("code") private String code;
+	@Field("dealer") 
+	private String dealer;
+	@Id
+	private String id;
+	@Field("code")
+	private String code;
 	private String make;
 	private String model;
 	private Integer kW;
@@ -29,6 +33,7 @@ public class Listing {
     public Listing(String code, String make, String model, int kW,  int year,  String color, int price) {
         super();
         this.dealer = "";
+        this.id = this.dealer + code;
     	this.code = code;
 		this.make = make;
 		this.model = model;
@@ -49,6 +54,7 @@ public class Listing {
 	 * @param dealer the dealer to set
 	 */
 	public void setDealer(String dealer) {
+		this.id = dealer + this.code;
 		this.dealer = dealer;
 	}
 

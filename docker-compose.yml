@@ -16,7 +16,7 @@ services:
     ports:
     - 8080:8080
     environment:
-    - MONGO_IP=mongo
+    - MONGO_IP=mongodb
     depends_on:
     - mongodb
 

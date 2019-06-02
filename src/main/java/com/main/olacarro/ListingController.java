@@ -20,7 +20,7 @@ public class ListingController {
 	@Autowired
 	ListingRepository listingRepository;
 	
-	MongoOperations mongoOperation = (MongoOperations) new AnnotationConfigApplicationContext(AppConfig.class).getBean("mongoTemplate");
+	MongoOperations mongoOps = (MongoOperations) new AnnotationConfigApplicationContext(AppConfig.class).getBean("mongoTemplate");
 	
 	@GetMapping("/search")
 	public Iterable<Listing> search(@RequestParam(required=false) String make,
@@ -37,12 +37,17 @@ public class ListingController {
 		if (color != null)
 			query.addCriteria(Criteria.where("color").is(color));
 		
-		return mongoOperation.find(query, Listing.class);
+		return mongoOps.find(query, Listing.class);
 		
 	}
 	
-	@PostMapping("/vehicle_listings")
-    public Iterable<Listing> vehicleListings(@RequestBody List<Listing> list) {
+	@PostMapping("/vehicle_listings//{dealer_id}")
+    public Iterable<Listing> vehicleListings(@PathVariable(required=true) String dealer_id, @RequestBody List<Listing> list) {
+		for( int i = 0; i < list.size(); i++) {
+			Listing temp = list.get(i);
+			temp.setDealer(dealer_id);
+			list.set(i, temp);
+		}
 		return listingRepository.saveAll(list);
     }
 	
