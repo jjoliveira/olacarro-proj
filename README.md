@@ -60,6 +60,10 @@
 
 3) *How to get the dealer_id `/vehicle_listings` endpoint?*
   - As I couldn't understand how the dealer_id would be passed in this endpoint I made it initialized to "" (empty String). Some scenarios that I thought of are:
-    - be in the of the JSON, before the list with the listings;
+    - initialization as empty string or null;
+    - be in the beginggin of the JSON, before the list with the listings;
     - be a session_id;
-    - be a path variable just like in `upload_csv` endpoint.
+    - be a path variable like in `upload_csv` endpoint **(IMPLEMENTATION USED)**.
+ 
+ 4) *What should be the key of Listing?*
+  - Decided to join dealer_id and code in a String and use it as the key.
