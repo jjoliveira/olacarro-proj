@@ -1,3 +1,16 @@
+# olacarro-proj
+
+### Instructions
+
+- Download the repository and unzip it
+- Run the following commands:
+  - `cd olacarro-proj`
+  - `mvn clean package` to generate the jar inside `target` folder (Optional as the jar is included)
+  - `sudo service mongodb start` to start mongo (make sure port 27017 is free)
+  - `java -jar target/olacarro-0.0.1-SNAPSHOT.jar`
+  
+### Implementation Details
+
 - **ORM** -> Spring Boot v2.1.5
   - Chosen because is one of the frameworks used bt heycar and I don't have a big experience with it so seemed like a good opportunity.
 - **database** - mongodb v3.6.3
