@@ -32,7 +32,7 @@ public class ListingController {
 	
 	@PostMapping("/vehicle_listings")
     public Iterable<Listing> vehicleListings(@RequestBody List<Listing> list) {
-		
+		return listingRepository.saveAll(list);
     }
 	
 	@PostMapping("/upload_csv/{dealer_id}")
