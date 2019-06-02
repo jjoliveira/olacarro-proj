@@ -3,11 +3,27 @@
 ### Instructions
 
 - Download the repository and unzip it
+- `cd olacarro-proj`
+  
+##### Build and execute jar & Launch mongo
+
 - Run the following commands:
-  - `cd olacarro-proj`
   - `sudo service mongodb start` to start mongo (make sure port 27017 is free)
   - `mvn clean package` to generate the jar inside `target` folder (Optional as the jar is included)
   - `java -jar target/olacarro-0.0.1-SNAPSHOT.jar`
+  - **OR _(same result)_**
+  - `sh build_jar.sh`
+  
+##### Deploying docker setup (jar included, no need to build it)
+- Run the following commands:
+  - `docker-compose build`
+  - `docker-compose up`
+  - **OR _(same result)_**
+  - `sh deploy_docker.sh`
+  
+- *Notes:*
+  - Port `8080` must be free as it is the one exposed (but can be changed on docker-compose file)
+  - To have mongodb available on port `27017` for debug uncomment lines 8 and 9 of docker-compose file
   
 ### Implementation Details
 
@@ -17,7 +33,7 @@
   - Given the scope of the project, a non-relational database was chosen on a relational database, since the latter would introduce unnecessary complexity;
   - Chosen because it is supported by Spring and I am familiar with it.
   
-### Problems discovered
+### Problems discovered1
 - Getting used to and working with spring 
 - Implementation differences in releases of Spring
 
