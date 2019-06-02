@@ -1,7 +1,9 @@
 package com.main.olacarro;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * 
@@ -10,11 +12,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * Class containing the data of each listing
  *
  */
+
+@CompoundIndex(name = "dealer_code", def="{'dealer': 1, 'code': 1 }")
 @Document
 public class Listing {
 	
-	private String dealer;
-	@Id private String code;
+	@Field("dealer") private String dealer;
+	@Field("code") private String code;
 	private String make;
 	private String model;
 	private Integer kW;
