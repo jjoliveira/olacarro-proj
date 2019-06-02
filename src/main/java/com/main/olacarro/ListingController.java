@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -21,12 +20,24 @@ public class ListingController {
 	@Autowired
 	ListingRepository listingRepository;
 	
+	MongoOperations mongoOperation = (MongoOperations) new AnnotationConfigApplicationContext(AppConfig.class).getBean("mongoTemplate");
+	
 	@GetMapping("/search")
 	public Iterable<Listing> search(@RequestParam(required=false) String make,
 					   @RequestParam(required=false) String model,
 					   @RequestParam(required=false) Integer year,
 					   @RequestParam(required=false) String color) {
+		Query query = new Query();
+		if (make != null)
+			query.addCriteria(Criteria.where("make").is(make));
+		if (model != null)
+			query.addCriteria(Criteria.where("model").is(model));
+		if (year != null)
+			query.addCriteria(Criteria.where("year").is(year));
+		if (color != null)
+			query.addCriteria(Criteria.where("color").is(color));
 		
+		return mongoOperation.find(query, Listing.class);
 		
 	}
 	
