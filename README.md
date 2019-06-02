@@ -61,26 +61,26 @@
 
 ### Decisions taken and questions that lead to them
 1) *Should Dealer be a class?*
-  - No, given that it would only have one attribute and would increase the complexity of the solution.
+    - No, given that it would only have one attribute and would increase the complexity of the solution.
 
 2) *Should Provider be a class?*
-  - No, because as I understood it is only introduced to explain in what way the solution would be used. Could be implemented as a class with a group of Listings associated but in that case, it could interact directly with the db without needing the endpoints.
+    - No, because as I understood it is only introduced to explain in what way the solution would be used. Could be implemented as a class with a group of Listings associated but in that case, it could interact directly with the db without needing the endpoints.
 
 3) *How to get the dealer_id `/vehicle_listings` endpoint?*
-  - As I couldn't understand how the dealer_id would be passed in this endpoint I made it initialized to "" (empty String). Some scenarios that I thought of are:
-    - initialization as empty string or null;
-    - be in the beginggin of the JSON, before the list with the listings;
-    - be a session_id;
-    - be a path variable like in `upload_csv` endpoint **(IMPLEMENTATION USED)**.
+    - As I couldn't understand how the dealer_id would be passed in this endpoint I made it initialized to "" (empty String). Some scenarios that I thought of are:
+      - initialization as empty string or null;
+      - be in the beginggin of the JSON, before the list with the listings;
+      - be a session_id;
+      - be a path variable like in `upload_csv` endpoint **(IMPLEMENTATION USED)**.
  
 4) *What should be the key of Listing?*
-  - Decided to join dealer_id and code in a String and use it as the key.
+    - Decided to join dealer_id and code in a String and use it as the key.
 
 5) *Should search return 404 or and empty JSON array?*
-  - Decided to return a JSON array as it is the standard.
+    - Decided to return a JSON array as it is the standard.
 
 6) *Should the power in the csv file be converted from ps to kW?*
-  - I implemented assuming the answer was yes and the conversion was made according to  https://www.unitconverters.net/power/pferdestarke-ps-to-kilowatt.htm
+    - I implemented assuming the answer was yes and the conversion was made according to  https://www.unitconverters.net/power/pferdestarke-ps-to-kilowatt.htm
 
 7) *How should I name the project?*
-  - Why not the portuguese translation of `heycar`? :thinking:
+    - Why not the portuguese translation of `heycar`? :thinking:
