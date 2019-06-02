@@ -7,6 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class OlacarroApplication {
 
 	public static void main(String[] args) {
+		String mongo_ip = System.getenv("MONGO_IP") == null ? "localhost" : System.getenv("MONGO_IP");
+		
+		System.out.println(mongo_ip);
+		
 		SpringApplication.run(OlacarroApplication.class, args);
 	}
 
