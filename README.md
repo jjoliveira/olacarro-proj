@@ -33,23 +33,31 @@
   - Given the scope of the project, a non-relational database was chosen on a relational database, since the latter would introduce unnecessary complexity;
   - Chosen because it is supported by Spring and I am familiar with it.
   
-### Problems discovered1
+### Problems discovered
 - Getting used to and working with spring 
 - Implementation differences in releases of Spring
 
-### Executed tests
-  - Endpoints tested only manually so far with Postman and Robo3T.
-  - **TODO** implement automated tests
+### Executed tests (numbered the same way in OlacarroApplicationTests.java)
+  1) Search on an empty repository returns an empty JSON array;
+  2) Inserts one `Listing` in the database through `/vehicles_listing`
+  3) Inserts many `Listing`s in the database through `/vehicles_listing`
+  4) Inserts many `Listing`s in the database through `/upload_csv`
+  5) Search for `Listing`s with `make` mercedes and `model` c 250;
+  6) Search for `Listing`s with `color` black and `year` 1996;
+  7) Search for all `Listing`s;
+  8) Inserts `Listing`s with existing code for a certain dealer through `/vehicles_listing`.
+  
+  - Endpoints also tested manually with Postman and Robo3T.
 
 ### Ideas to implement
-- Improve exception handling
+- Improve exception handling;
+- Create documentation through Javadoc;
+- Implement search by price interval;
 - Create some extra classes, like:
   - **Car** - could group and better organize data inside Listing;
   - **Dealer** - not implemented as it would only have one attribute (dealer_id);
-- Simple interface, not implemented as it would be time-consuming and outside of the scope of the assignment.
-- Use two OCI-Containers through Docker
-  - One for running the jar with the API;
-  - And one running mongodb
+- Simple interface, not implemented as it would be time-consuming and outside of the scope of the assignment;
+- Improve integration tests of the docker setup.
 
 ### Decisions taken and questions that lead to them
 1) *Should Dealer be a class?*
@@ -65,5 +73,14 @@
     - be a session_id;
     - be a path variable like in `upload_csv` endpoint **(IMPLEMENTATION USED)**.
  
- 4) *What should be the key of Listing?*
+4) *What should be the key of Listing?*
   - Decided to join dealer_id and code in a String and use it as the key.
+
+5) *Should search return 404 or and empty JSON array?*
+  - Decided to return a JSON array as it is the standard.
+
+6) *Should the power in the csv file be converted from ps to kW?*
+  - I implemented assuming the answer was yes and the conversion was made according to  https://www.unitconverters.net/power/pferdestarke-ps-to-kilowatt.htm
+
+7) *How should I name the project?*
+  - Why not the portuguese translation of `heycar`? :thinking:
