@@ -80,7 +80,10 @@
     - Decided to return a JSON array as it is the standard.
 
 6) *Should the power in the csv file be converted from ps to kW?*
-    - I implemented assuming the answer was yes and the conversion was made according to  https://www.unitconverters.net/power/pferdestarke-ps-to-kilowatt.htm
+    - I implemented assuming the answer was yes and the conversion was made according to  https://www.unitconverters.net/power/pferdestarke-ps-to-kilowatt.html
 
-7) *How should I name the project?*
+7) *Is color the only column that can be missing?*
+    - I assumed yes and it is handled properly.
+
+8) *How should I name the project?*
     - Why not the portuguese translation of `heycar`? :thinking:
