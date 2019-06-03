@@ -51,7 +51,7 @@
 
 ### Ideas to implement
 - Improve exception handling;
-- Create documentation through Javadoc;
+- Create documentation through Javadoc and code coverage with EclEmma;
 - Implement search by price interval;
 - Create some extra classes, like:
   - **Car** - could group and better organize data inside Listing;
