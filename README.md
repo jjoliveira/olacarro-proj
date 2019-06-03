@@ -3,7 +3,7 @@
 ### Instructions
 
 - Download the repository and unzip it
-- `cd olacarro-proj`
+- `cd olacarro-proj-master`
   
 ##### Build and execute jar & Launch mongo
 
