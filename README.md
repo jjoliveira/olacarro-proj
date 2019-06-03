@@ -30,7 +30,7 @@
 - **ORM** -> Spring Boot v2.1.5
   - Chosen because it is one of the frameworks used bt heycar and as I don't have a lot of experience with it, seemed like a good opportunity to use it.
 - **database** -> mongodb v3.6.3
-  - Given the scope of the project, a non-relational database was chosen on a relational database, since the latter would introduce unnecessary complexity;
+  - Given the scope of the project, a non-relational database was chosen over a relational database, since the latter would introduce unnecessary complexity;
   - Chosen because it is supported by Spring and I am familiar with it.
   
 ### Problems discovered
@@ -69,7 +69,7 @@
 3) *How to get the dealer_id `/vehicle_listings` endpoint?*
     - As I couldn't understand how the dealer_id would be passed in this endpoint I made it initialized to "" (empty String). Some scenarios that I thought of are:
       - initialization as empty string or null;
-      - be in the beginggin of the JSON, before the list with the listings;
+      - be in the beginning of the JSON, before the list with the listings;
       - be a session_id;
       - be a path variable like in `upload_csv` endpoint **(IMPLEMENTATION USED)**.
  
