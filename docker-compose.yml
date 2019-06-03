@@ -1,12 +1,11 @@
-# Use root/example as user/password credentials
 version: '3.1'
 
 services:
 
   mongodb:
     image: mongo
-    ports:
-    - 27017:27017
+    #ports:
+    #- 27017:27017
     volumes:
       - db-data:/data/db
       - mongo-config:/data/configdb

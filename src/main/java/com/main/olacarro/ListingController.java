@@ -81,7 +81,7 @@ public class ListingController {
 		String code = aux[0];
 		String make = aux[1].split("/")[0];
 		String model = aux[1].split("/")[1]; 
-		int kW = Integer.parseInt(aux[2]);
+		int kW = (int) (Integer.parseInt(aux[2]) * 0.73549875); // according to https://www.unitconverters.net/power/pferdestarke-ps-to-kilowatt.htm
 		int year = Integer.parseInt(aux[3]); 
 		String color = aux.length == 6 ? aux[4] : null; //assuming sometimes color can be missing like in the provided example
 		int price = aux.length == 6 ? Integer.parseInt(aux[5]) : Integer.parseInt(aux[4]);
